@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les photos de Mamie</title>
+<meta name="description" content="L'appli photo toute simple pour nos grands-parents : elle récupère les photos du téléphone, les range en albums et les montre en grand. Gratuite, pour Windows.">
+<meta property="og:title" content="Les photos de Mamie">
+<meta property="og:description" content="L'appli photo toute simple pour nos grands-parents. Gratuite, pour Windows.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23D9362B'%3E%3Ccircle cx='50' cy='30' r='22'/%3E%3Ccircle cx='30' cy='52' r='22'/%3E%3Ccircle cx='70' cy='52' r='22'/%3E%3Ccircle cx='50' cy='68' r='20'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='10' fill='%232B2220'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #FBF5EC;
+    --card: #FFFDF9;
+    --ink: #2B2220;
+    --muted: #6E625B;
+    --line: #EADBC8;
+    --primary: #B8432A;
+    --primary-ink: #8A2E1B;
+    --primary-soft: #FBE7DE;
+    --green: #2F7D4F;
+    --green-soft: #E3F1E7;
+    --sky: #DCEBF5;
+    --shadow: 0 10px 30px rgba(84, 48, 28, .10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1C1715; --card: #26201D; --ink: #F3ECE6; --muted: #B9ADA5; --line: #3D3430;
+      --primary: #E0664B; --primary-ink: #F4A48F; --primary-soft: #3A2620; --green: #56B07C; --green-soft: #1F3326;
+      --sky: #1F2A33; --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1C1715; --card: #26201D; --ink: #F3ECE6; --muted: #B9ADA5; --line: #3D3430;
+    --primary: #E0664B; --primary-ink: #F4A48F; --primary-soft: #3A2620; --green: #56B07C; --green-soft: #1F3326;
+    --sky: #1F2A33; --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 18px/1.6 "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.15; margin: 0; }
+  a { color: var(--primary); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* ---- en-tête : un ciel, des collines, des coquelicots */
+  .hero { background: linear-gradient(180deg, var(--sky), var(--bg)); position: relative; overflow: hidden; padding: 56px 0 110px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: Georgia, serif; font-weight: bold; font-size: 20px; margin-bottom: 26px; }
+  .hero h1 { font-size: clamp(38px, 6vw, 64px); }
+  .hero p.lead { font-size: clamp(19px, 2.2vw, 23px); color: var(--muted); margin: 18px 0 28px; max-width: 34em; }
+  .download {
+    display: inline-flex; align-items: center; gap: 14px; background: var(--green); color: #fff; text-decoration: none;
+    font-size: 22px; font-weight: 600; padding: 18px 30px; border-radius: 16px; box-shadow: var(--shadow);
+    transition: transform .15s ease, filter .15s ease;
+  }
+  .download:hover { transform: translateY(-2px); filter: brightness(1.06); }
+  .download svg { flex: none; }
+  .version { margin-top: 12px; color: var(--muted); font-size: 16px; min-height: 1.6em; }
+  .hills { position: absolute; left: 0; right: 0; bottom: 0; height: 140px; }
+  .hills svg { width: 100%; height: 100%; display: block; }
+
+  /* ---- la fenêtre de l'appli, dessinée */
+  .shot { background: var(--card); border: 2px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); overflow: hidden; }
+  .shot .bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 2px solid var(--line); font-family: Georgia, serif; font-weight: bold; font-size: 15px; }
+  .shot .body { padding: 16px; display: grid; gap: 12px; }
+  .hello { background: linear-gradient(120deg, #A53A24, #7E2B1A); color: #fff; border-radius: 14px; padding: 16px 18px; font-family: Georgia, serif; font-size: 24px; font-weight: bold; }
+  .hello small { display: block; font-family: "Segoe UI", sans-serif; font-weight: normal; font-size: 14px; opacity: .85; margin-top: 2px; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tile { border: 2px solid var(--line); border-radius: 14px; padding: 12px; font-size: 14px; color: var(--muted); }
+  .tile b { display: block; color: var(--ink); font-family: Georgia, serif; font-size: 17px; }
+  .tile .pill { display: inline-block; margin-top: 8px; background: var(--green); color: #fff; border-radius: 10px; padding: 3px 10px; font-size: 13px; font-weight: 600; }
+  .mosaic { display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: 6px; height: 74px; }
+  .mosaic i { border-radius: 8px; display: block; }
+
+  /* ---- les sections */
+  section { padding: 64px 0; }
+  section h2 { font-size: clamp(30px, 4vw, 40px); margin-bottom: 10px; }
+  section p.sub { color: var(--muted); margin: 0 0 30px; font-size: 19px; max-width: 40em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 22px; }
+  .card .ico { width: 52px; height: 52px; border-radius: 26px; background: var(--primary-soft); display: grid; place-items: center; margin-bottom: 14px; }
+  .card h3 { font-size: 22px; margin-bottom: 6px; }
+  .card p { margin: 0; color: var(--muted); font-size: 17px; }
+
+  .steps { counter-reset: step; display: grid; gap: 14px; }
+  .step { background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 20px 22px 20px 82px; position: relative; }
+  .step::before {
+    counter-increment: step; content: counter(step); position: absolute; left: 22px; top: 18px;
+    width: 42px; height: 42px; border-radius: 21px; background: var(--primary); color: #fff;
+    display: grid; place-items: center; font: bold 20px Georgia, serif;
+  }
+  .step h3 { font-size: 21px; margin-bottom: 4px; }
+  .step p { margin: 0; color: var(--muted); }
+  .warn { background: var(--primary-soft); border-radius: 14px; padding: 14px 18px; margin-top: 12px; color: var(--ink); font-size: 17px; }
+  .warn b { color: var(--primary-ink); }
+
+  .news { display: grid; gap: 12px; }
+  .news .item { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+  .news .item b { font-family: Georgia, serif; font-size: 18px; }
+  .news .item p { margin: 4px 0 0; color: var(--muted); }
+
+  details { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 16px 20px; margin-bottom: 12px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 19px; }
+  details p { color: var(--muted); margin: 10px 0 0; }
+
+  .again { text-align: center; background: var(--green-soft); border-radius: 24px; padding: 44px 20px; }
+  .again h2 { margin-bottom: 18px; }
+  footer { text-align: center; color: var(--muted); font-size: 15px; padding: 30px 16px 40px; }
+
+  @media (max-width: 860px) {
+    .hero { padding: 36px 0 90px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 28px; }
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .grid { grid-template-columns: 1fr; }
+    .download { width: 100%; justify-content: center; font-size: 20px; padding: 16px 18px; }
+    .step { padding-left: 72px; }
+    .step::before { left: 16px; }
+    section { padding: 46px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand">
+        <svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true"><g fill="#D9362B"><circle cx="50" cy="30" r="22"/><circle cx="30" cy="52" r="22"/><circle cx="70" cy="52" r="22"/><circle cx="50" cy="68" r="20"/></g><circle cx="50" cy="50" r="10" fill="#2B2220"/></svg>
+        Les photos de Mamie
+      </div>
+      <h1>Les photos de famille, enfin simples.</h1>
+      <p class="lead">Une appli pour Windows pensée pour nos grands-parents. On branche le téléphone, et elle s'occupe du reste : récupérer les photos, les ranger en albums, les montrer en grand.</p>
+      <a class="download" id="dl" href="https://github.com/Glaede2/les-photos-de-mamie/releases/latest/download/MesPhotos.exe">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v11.17l-4.59-4.58L6 10l6 6 6-6-1.41-1.41L13 13.17V2h-2z"/></svg>
+        Télécharger l'appli
+      </a>
+      <div class="version" id="version">Gratuite · pour Windows 10 et 11 · environ 90 Mo</div>
+    </div>
+
+    <div class="shot" aria-hidden="true">
+      <div class="bar">
+        <svg width="18" height="18" viewBox="0 0 100 100"><g fill="#D9362B"><circle cx="50" cy="30" r="22"/><circle cx="30" cy="52" r="22"/><circle cx="70" cy="52" r="22"/><circle cx="50" cy="68" r="20"/></g><circle cx="50" cy="50" r="10" fill="#2B2220"/></svg>
+        Les photos de Mamie
+      </div>
+      <div class="body">
+        <div class="hello">Bonjour Mamie !<small>Que veux-tu faire ? Clique sur une grande case en dessous.</small></div>
+        <div class="tiles">
+          <div class="tile"><b>Téléphone de Mamie</b>À récupérer : 48 photos et 3 vidéos.<br><span class="pill">Récupérer</span></div>
+          <div class="tile"><b>Regarder mes albums</b>Retrouve toutes tes photos déjà rangées.
+            <div class="mosaic" style="margin-top:8px"><i style="background:#E9A07E"></i><i style="background:#8FB98A"></i><i style="background:#7FA6C9"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hills" aria-hidden="true">
+    <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+      <path d="M0,80 C200,30 380,40 600,70 C820,100 1000,40 1200,60 L1200,140 L0,140Z" fill="#B9D29A" opacity=".55"/>
+      <path d="M0,105 C260,70 460,90 700,105 C900,118 1050,85 1200,95 L1200,140 L0,140Z" fill="#9CC07A" opacity=".55"/>
+      <g fill="#D9362B">
+        <circle cx="120" cy="98" r="7"/><circle cx="260" cy="110" r="6"/><circle cx="420" cy="100" r="8"/><circle cx="560" cy="114" r="6"/>
+        <circle cx="730" cy="106" r="7"/><circle cx="880" cy="116" r="6"/><circle cx="1010" cy="100" r="8"/><circle cx="1130" cy="112" r="6"/>
+      </g>
+      <g fill="#fff"><circle cx="190" cy="118" r="4"/><circle cx="640" cy="122" r="4"/><circle cx="960" cy="124" r="4"/></g>
+    </svg>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Ce qu'elle fait</h2>
+      <p class="sub">De grands boutons, des phrases claires, et jamais de question compliquée. Elle tutoie, et dit bonjour avec le prénom qu'on lui donne.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="var(--primary)" d="M17 19H7V5h10m0-4H7c-1.11 0-2 .89-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3c0-1.11-.9-2-2-2z"/></svg></div>
+          <h3>Elle récupère les photos</h3>
+          <p>Téléphone, tablette, carte d'appareil photo, clé USB ou disque dur : on le branche, elle propose de copier les nouvelles photos et vidéos. Jamais deux fois la même.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="var(--primary)" d="M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8c0-1.11-.9-2-2-2h-8l-2-2z"/></svg></div>
+          <h3>Elle aide à les ranger</h3>
+          <p>Les photos arrivent par journée. Un clic sur le nom d'un album, et elles y sont. Chaque album a sa date, son lieu et quelques mots.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="var(--primary)" d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1"/></svg></div>
+          <h3>Une frise pour s'y retrouver</h3>
+          <p>Les albums s'affichent année par année, avec une recherche par nom, lieu ou mois. Les photos gardent leur format, en grand.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="var(--primary)" d="M8 5.14v14l11-7-11-7z"/></svg></div>
+          <h3>Vidéos et diaporama</h3>
+          <p>Les vidéos se regardent directement dans l'appli, avec le son et la pause. Un diaporama en plein écran, pour toute la famille.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="var(--primary)" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35z"/></svg></div>
+          <h3>Les photos préférées</h3>
+          <p>Un cœur sur les plus belles, un souvenir qui change toutes les 10 secondes sur l'accueil, l'impression et le fond d'écran en un clic.</p>
+        </div>
+        <div class="card">
+          <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24"><path fill="var(--primary)" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+          <h3>Rien ne se perd</h3>
+          <p>Les photos jetées restent 30 jours dans une corbeille. Une sauvegarde sur clé ou disque externe est prévue, et l'appli se met à jour toute seule.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="installer" style="padding-top:20px">
+    <div class="wrap">
+      <h2>L'installer en 3 minutes</h2>
+      <p class="sub">Pas de compte à créer, rien à régler. Le mieux : le faire soi-même chez Mamie, une seule fois.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Télécharge l'appli</h3>
+          <p>Clique sur le bouton vert « Télécharger l'appli ». Si le navigateur dit que le fichier « n'est pas souvent téléchargé », choisis « Conserver ».</p>
+        </div>
+        <div class="step">
+          <h3>Ouvre le fichier MesPhotos.exe</h3>
+          <p>Il est dans le dossier Téléchargements. Double-clique dessus.</p>
+          <div class="warn"><b>Windows affiche « Windows a protégé votre ordinateur » ?</b> C'est normal pour une petite appli qui n'est pas vendue en magasin. Clique sur « Informations complémentaires », puis sur « Exécuter quand même ». Ça n'arrive qu'une fois.</div>
+        </div>
+        <div class="step">
+          <h3>Donne un prénom</h3>
+          <p>L'appli demande comment s'appelle la personne : Mamie, Papi, Anne… Elle s'installe toute seule et met un coquelicot sur le Bureau. C'est tout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <h2>Les nouveautés</h2>
+      <p class="sub">L'appli se met à jour toute seule, sans rien demander. Voici les dernières versions.</p>
+      <div class="news" id="news">
+        <div class="item"><b>Chargement…</b><p>Si rien n'apparaît, la liste complète est sur <a href="https://github.com/Glaede2/les-photos-de-mamie/releases">GitHub</a>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <details>
+        <summary>C'est vraiment gratuit ?</summary>
+        <p>Oui. Pas de publicité, pas d'abonnement, pas de compte.</p>
+      </details>
+      <details>
+        <summary>Les photos partent-elles sur internet ?</summary>
+        <p>Non. Les photos restent sur l'ordinateur, dans le dossier Images. L'appli ne se connecte à internet que pour vérifier s'il existe une nouvelle version, et pour chercher un lieu sur la carte quand on en tape un.</p>
+      </details>
+      <details>
+        <summary>Sur quel ordinateur ça marche ?</summary>
+        <p>Sur un PC avec Windows 10 ou Windows 11. Pas sur Mac, ni sur tablette.</p>
+      </details>
+      <details>
+        <summary>Et les photos déjà sur l'ordinateur ?</summary>
+        <p>L'appli peut les retrouver (dans Images, sur le Bureau, dans Téléchargements) et proposer d'en faire des albums. Rien ne bouge sans qu'on le demande.</p>
+      </details>
+      <details>
+        <summary>Comment la mettre à jour ?</summary>
+        <p>Il n'y a rien à faire : elle regarde toute seule s'il y a une nouvelle version et l'installe quand sa fenêtre est fermée.</p>
+      </details>
+    </div>
+  </section>
+
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="again">
+        <h2>Prêt pour les photos de famille ?</h2>
+        <a class="download" href="https://github.com/Glaede2/les-photos-de-mamie/releases/latest/download/MesPhotos.exe">
+          <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v11.17l-4.59-4.58L6 10l6 6 6-6-1.41-1.41L13 13.17V2h-2z"/></svg>
+          Télécharger l'appli
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Fait avec amour pour Mamie, et pour toutes les autres.</footer>
+
+<script>
+  // la dernière version et les nouveautés, lues sur GitHub (le bouton marche aussi sans ça)
+  const repo = "Glaede2/les-photos-de-mamie";
+  const day = d => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  fetch(`https://api.github.com/repos/${repo}/releases?per_page=6`)
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(list => {
+      const releases = list.filter(r => !r.draft && !r.prerelease);
+      if (!releases.length) return;
+      const last = releases[0];
+      const exe = (last.assets || []).find(a => a.name === "MesPhotos.exe");
+      const size = exe ? ` · ${Math.round(exe.size / 1048576)} Mo` : "";
+      document.getElementById("version").textContent = `Gratuite · pour Windows 10 et 11 · version du ${day(last.published_at)}${size}`;
+      document.getElementById("news").innerHTML = releases.map(r =>
+        `<div class="item"><b>${esc(day(r.published_at))}</b><p>${esc(r.body || r.name || "")}</p></div>`).join("");
+    })
+    .catch(() => {
+      document.getElementById("news").innerHTML =
+        `<div class="item"><b>Toutes les versions</b><p>La liste est sur <a href="https://github.com/${repo}/releases">GitHub</a>.</p></div>`;
+    });
+</script>
+</body>
+</html>
