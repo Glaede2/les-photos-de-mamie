@@ -1,5 +1,22 @@
 [
     {
+        "published_at":  "2026-11-04T18:34:30Z",
+        "name":  "Version du 04/11/2026 19:34",
+        "body":  "Dans un album, les photos apparaissent plus vite pendant qu\u0027on fait défiler, même sur un ordinateur modeste.",
+        "draft":  false,
+        "prerelease":  false,
+        "assets":  [
+                       {
+                           "name":  "MesPhotos.exe",
+                           "size":  92836964
+                       },
+                       {
+                           "name":  "version.json",
+                           "size":  817
+                       }
+                   ]
+    },
+    {
         "published_at":  "2026-11-03T21:51:06Z",
         "name":  "Version du 03/11/2026 22:50",
         "body":  "La page « Mes albums » défile bien plus facilement, même avec beaucoup d\u0027albums et sur un ordinateur modeste. L\u0027appli se fait aussi plus discrète pendant qu\u0027on s\u0027en sert.",
