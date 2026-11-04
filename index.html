@@ -14,9 +14,9 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23D9362B'%3E%3Ccircle cx='50' cy='30' r='22'/%3E%3Ccircle cx='30' cy='52' r='22'/%3E%3Ccircle cx='70' cy='52' r='22'/%3E%3Ccircle cx='50' cy='68' r='20'/%3E%3C/g%3E%3Ccircle cx='50' cy='50' r='10' fill='%232B2220'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ============================================================ les couleurs de l'appli, en un peu plus vif */
+  /* ============================================================ les couleurs de l'appli */
   :root {
     --cream: #FBF5EA;
     --paper: #FFFDF9;
@@ -45,25 +45,27 @@
     font: 500 19px/1.65 "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
-  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: bold; line-height: 1.1; margin: 0; letter-spacing: -.015em; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: bold; line-height: 1.08; margin: 0; letter-spacing: -.015em; }
   a { color: var(--poppy); }
   img { display: block; max-width: 100%; }
-  .wrap { width: min(1220px, 100% - 32px); margin: 0 auto; }
+  .wrap { width: min(1180px, 100% - 32px); margin: 0 auto; }
+  /* l'écriture à la main : les petits mots de celui qui a fait l'appli */
+  .hand { font-family: "Caveat", cursive; font-weight: 700; letter-spacing: 0; line-height: 1.1; }
 
-  /* le fond : des taches de couleur douces qui bougent à peine */
+  /* le fond : quelques taches de couleur douces */
   .aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-  .aurora i { position: absolute; width: 42vmax; height: 42vmax; border-radius: 50%; filter: blur(90px); opacity: .32; animation: drift 40s ease-in-out infinite alternate; }
-  .aurora i:nth-child(1) { background: var(--sun); left: -14vmax; top: 40vh; }
-  .aurora i:nth-child(2) { background: #F49AA8; right: -16vmax; top: 90vh; animation-delay: -14s; }
-  .aurora i:nth-child(3) { background: #8FC3EC; left: 25vw; top: 160vh; animation-delay: -26s; }
+  .aurora i { position: absolute; width: 42vmax; height: 42vmax; border-radius: 50%; filter: blur(90px); opacity: .3; animation: drift 40s ease-in-out infinite alternate; }
+  .aurora i:nth-child(1) { background: var(--sun); left: -14vmax; top: 60vh; }
+  .aurora i:nth-child(2) { background: #F49AA8; right: -16vmax; top: 110vh; animation-delay: -14s; }
+  .aurora i:nth-child(3) { background: #8FC3EC; left: 25vw; top: 170vh; animation-delay: -26s; }
   .aurora i:nth-child(4) { background: #9FD3A8; right: -10vmax; bottom: -16vmax; animation-delay: -8s; }
   @keyframes drift { to { transform: translate(5vmax, 5vmax) scale(1.08); } }
 
   /* ============================================================ la barre du haut */
   .nav {
-    position: sticky; top: 12px; z-index: 50; margin: 12px auto 0; width: min(1220px, 100% - 24px);
+    position: sticky; top: 12px; z-index: 50; margin: 12px auto 0; width: min(1180px, 100% - 24px);
     display: flex; align-items: center; gap: 18px; padding: 9px 9px 9px 16px; border-radius: 999px;
-    background: rgba(255, 253, 249, .8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 253, 249, .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(234, 219, 200, .8); box-shadow: var(--shadow-soft);
   }
   .logo { display: flex; align-items: center; gap: 10px; font: bold 19px Georgia, serif; color: var(--ink); text-decoration: none; white-space: nowrap; }
@@ -72,101 +74,97 @@
   .nav .links a:hover { background: var(--sand); }
   .nav .mini { background: var(--green); color: #fff; text-decoration: none; font-weight: 700; font-size: 15.5px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; }
 
-  /* ============================================================ l'ouverture : le ciel et la prairie de l'appli */
+  /* ============================================================ l'ouverture : le titre, puis la vidéo en grand */
   .hero {
-    position: relative; margin-top: -70px; padding: 150px 0 170px; overflow: hidden;
-    background: radial-gradient(circle at 88% 8%, rgba(255, 226, 150, .75), transparent 32%), linear-gradient(180deg, var(--sky) 0%, #E5F1EC 58%, var(--cream) 100%);
+    position: relative; margin-top: -70px; padding: 150px 0 190px; overflow: hidden; text-align: center;
+    background: radial-gradient(circle at 86% 6%, rgba(255, 226, 150, .8), transparent 30%), linear-gradient(180deg, var(--sky) 0%, #E6F1EC 55%, var(--cream) 100%);
   }
-  .hero .wrap { display: grid; grid-template-columns: .74fr 1.26fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
-  .eyebrow { font: italic 22px Georgia, serif; color: var(--poppy); display: inline-flex; align-items: center; gap: 10px; }
-  .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--poppy); border-radius: 2px; }
-  .hero h1 { font-size: clamp(46px, 6vw, 82px); margin: 14px 0 0; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero .eyebrow { font-size: 34px; color: var(--poppy); display: inline-block; transform: rotate(-2deg); }
+  .hero h1 { font-size: clamp(50px, 7.4vw, 104px); margin: 6px auto 0; }
   .hero h1 .love { position: relative; white-space: nowrap; color: var(--poppy); }
-  .hero h1 .love svg { position: absolute; left: -2%; bottom: -.12em; width: 104%; height: .28em; overflow: visible; }
+  .hero h1 .love svg { position: absolute; left: -2%; bottom: -.1em; width: 104%; height: .26em; overflow: visible; }
   .hero h1 .love path { stroke-dasharray: 520; stroke-dashoffset: 520; animation: draw 1.3s .6s ease-out forwards; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
-  .hero .lead { font-size: clamp(19px, 1.7vw, 21px); color: var(--muted); margin: 24px 0 32px; max-width: 29em; }
+  .hero .lead { font-size: clamp(19px, 1.8vw, 22px); color: var(--muted); margin: 26px auto 34px; max-width: 34em; }
   .btn {
-    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 12px; text-decoration: none; font-weight: 800;
-    font-size: 19px; padding: 18px 30px; border-radius: 18px; border: 0; cursor: pointer; font-family: inherit;
-    transition: transform .2s ease, filter .2s ease;
+    display: inline-flex; align-items: center; justify-content: center; gap: 14px; text-decoration: none; font-weight: 800;
+    font-size: 19px; padding: 16px 30px; border-radius: 18px; border: 0; cursor: pointer; font-family: inherit;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   }
-  .btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
-  .btn.main { color: #fff; background: var(--green); box-shadow: 0 14px 30px -12px rgba(47, 125, 79, .75); }
-  .btn.main::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none;
-    background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, .35) 50%, transparent 65%); background-size: 260% 100%;
-    animation: shine 6s ease-in-out infinite;
-  }
-  @keyframes shine { 0%, 70% { background-position: 150% 0; } 100% { background-position: -110% 0; } }
-  .how { display: inline-block; margin-left: 18px; font-weight: 700; font-size: 16.5px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--sun); padding-bottom: 1px; }
-  .how:hover { color: var(--poppy); }
-  .meta { margin-top: 18px; color: var(--muted); font-size: 15.5px; font-weight: 600; display: flex; flex-wrap: wrap; gap: 4px 16px; }
-  .meta span::before { content: "✓ "; color: var(--green); font-weight: 800; }
-  /* la petite blague, sur un pense-bête */
-  .postit {
-    position: relative; display: inline-block; margin-top: 28px; max-width: 330px; background: #FFE69A; color: #4A3A12;
-    padding: 16px 20px 16px 22px; border-radius: 4px 4px 22px 4px; box-shadow: 0 14px 26px -14px rgba(120, 90, 10, .55);
-    font: italic 18px/1.45 Georgia, serif; transform: rotate(-2.5deg);
-  }
-  .postit b { font-style: normal; display: block; font-size: 20px; margin-bottom: 2px; color: #2B2220; }
-  .postit::before { content: ""; position: absolute; top: -10px; left: 50%; width: 84px; height: 22px; translate: -50% 0; rotate: 3deg; background: rgba(255, 255, 255, .55); box-shadow: 0 1px 2px rgba(0, 0, 0, .06); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.main { color: #fff; background: var(--green); box-shadow: 0 14px 30px -12px rgba(47, 125, 79, .75); text-align: left; }
+  .btn.main:hover { background: #2A7147; box-shadow: 0 18px 34px -12px rgba(47, 125, 79, .8); }
+  .btn.main .ico { width: 44px; height: 44px; border-radius: 12px; background: rgba(255, 255, 255, .16); display: grid; place-items: center; flex: none; }
+  .btn.main span { display: flex; flex-direction: column; line-height: 1.2; }
+  .btn.main small { font-weight: 600; font-size: 14px; opacity: .85; }
 
-  /* la vidéo, en grand, posée parmi les photos */
-  .stage { position: relative; }
-  .screen { position: relative; z-index: 2; border-radius: 22px; overflow: hidden; background: #fff; border: 9px solid #fff; box-shadow: 0 36px 70px -30px rgba(84, 48, 28, .5); transform: rotate(.8deg); }
-  .screen video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--sand); border-radius: 13px; }
-  .screen .toggle { position: absolute; right: 12px; bottom: 12px; width: 42px; height: 42px; border-radius: 50%; border: 0; cursor: pointer; background: rgba(255, 255, 255, .9); display: grid; place-items: center; box-shadow: var(--shadow-soft); }
-  .pola { position: absolute; z-index: 1; background: #fff; padding: 9px 9px 34px; border-radius: 6px; box-shadow: var(--shadow); animation: float 9s ease-in-out infinite; }
+  /* la vidéo : une grande photo collée dans l'album, avec des petits mots autour */
+  .stage { position: relative; width: min(1060px, 100%); margin: 74px auto 0; }
+  .screen { position: relative; z-index: 2; background: #fff; padding: 12px; border-radius: 18px; box-shadow: 0 40px 80px -34px rgba(84, 48, 28, .55); transform: rotate(-.6deg); }
+  .screen video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--sand); border-radius: 9px; }
+  .screen .toggle { position: absolute; right: 24px; bottom: 24px; width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer; background: rgba(255, 255, 255, .9); display: grid; place-items: center; box-shadow: var(--shadow-soft); }
+  .tape { position: absolute; z-index: 3; width: 120px; height: 30px; background: rgba(255, 246, 220, .75); box-shadow: 0 2px 6px rgba(84, 48, 28, .12); }
+  .tape.t-l { left: -34px; top: 22px; rotate: -38deg; }
+  .pola { position: absolute; z-index: 1; background: #fff; padding: 9px 9px 36px; border-radius: 6px; box-shadow: var(--shadow); animation: float 9s ease-in-out infinite; }
   .pola img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
-  .pola span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: italic 15px Georgia, serif; color: var(--muted); }
-  .pola.p1 { width: 25%; left: -8%; top: -19%; rotate: -8deg; }
-  .pola.p2 { width: 22%; right: -6%; bottom: -22%; rotate: 7deg; animation-delay: -4s; }
+  .pola span { position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font-size: 22px; color: var(--muted); }
+  .pola.p1 { width: 190px; left: -84px; bottom: -96px; rotate: -8deg; z-index: 3; }
   @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
-  .hello { position: absolute; z-index: 4; left: 5%; bottom: -8%; background: linear-gradient(120deg, #A53A24, #7E2B1A); color: #fff; border-radius: 14px; padding: 10px 18px; box-shadow: var(--shadow); font: bold 22px Georgia, serif; rotate: -3deg; }
-  .hills { position: absolute; left: 0; right: 0; bottom: 0; height: 130px; }
+  .postit {
+    position: absolute; z-index: 4; right: -60px; top: -54px; width: 250px; background: #FFE69A; color: #4A3A12; text-align: left;
+    padding: 18px 20px 16px; border-radius: 3px 3px 20px 3px; box-shadow: 0 16px 28px -14px rgba(120, 90, 10, .6); rotate: 4deg;
+  }
+  .postit b { display: block; font-size: 30px; color: #2B2220; }
+  .postit p { margin: 2px 0 0; font-size: 25px; }
+  .note { position: absolute; z-index: 3; width: 175px; font-size: 27px; color: var(--poppy-deep); }
+  .note svg { display: block; margin-top: 6px; }
+  .note.n1 { left: -200px; top: 90px; text-align: right; }
+  .note.n1 svg { margin-left: auto; }
+  .hills { position: absolute; left: 0; right: 0; bottom: 0; height: 140px; }
   .hills svg { width: 100%; height: 100%; display: block; }
 
   /* ============================================================ le ruban */
-  .ribbon { position: relative; z-index: 2; margin: -34px 0 10px; transform: rotate(-1.4deg); background: var(--poppy); color: #fff; padding: 14px 0; overflow: hidden; box-shadow: var(--shadow-soft); }
+  .ribbon { position: relative; z-index: 2; margin: -38px 0 10px; transform: rotate(-1.4deg); background: var(--poppy); color: #fff; padding: 14px 0; overflow: hidden; box-shadow: var(--shadow-soft); }
   .ribbon .track { display: flex; width: max-content; animation: marquee 70s linear infinite; }
   .ribbon span { font: 700 18px "Manrope", sans-serif; padding: 0 20px; white-space: nowrap; display: flex; align-items: center; gap: 20px; }
   .ribbon span::after { content: "✿"; color: #FFD9A8; }
   @keyframes marquee { to { transform: translateX(-50%); } }
 
   /* ============================================================ les sections */
-  section { padding: 90px 0; position: relative; }
-  .kicker { font: italic 22px Georgia, serif; color: var(--poppy); display: block; margin-bottom: 8px; }
-  section h2 { font-size: clamp(34px, 4.4vw, 54px); }
-  .sub { color: var(--muted); font-size: 19.5px; max-width: 34em; margin: 14px 0 40px; }
+  section { padding: 100px 0; position: relative; }
+  .kicker { font-size: 30px; color: var(--poppy); display: block; margin-bottom: 4px; transform: rotate(-1.5deg); transform-origin: left; }
+  section h2 { font-size: clamp(36px, 4.6vw, 58px); }
+  .sub { color: var(--muted); font-size: 20px; max-width: 34em; margin: 16px 0 44px; }
 
-  /* l'histoire */
-  .story { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; align-items: center; }
-  .stack { position: relative; height: 420px; }
-  .stack figure { position: absolute; margin: 0; width: 60%; background: #fff; padding: 11px 11px 42px; border-radius: 6px; box-shadow: var(--shadow); transition: transform 1.2s ease; }
+  /* l'histoire : une lettre, à côté des photos */
+  .story { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; }
+  .stack { position: relative; height: 460px; }
+  .stack figure { position: absolute; margin: 0; width: 62%; background: #fff; padding: 12px 12px 48px; border-radius: 6px; box-shadow: var(--shadow); transition: transform 1.2s ease; }
   .stack figure img { aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
-  .stack figcaption { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; font: italic 17px Georgia, serif; color: var(--muted); }
+  .stack figcaption { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-size: 26px; color: var(--muted); }
   .stack figure:nth-child(1) { left: 0; top: 30px; transform: rotate(-8deg); }
-  .stack figure:nth-child(2) { left: 24%; top: 0; transform: rotate(6deg); }
-  .stack figure:nth-child(3) { left: 11%; top: 125px; transform: rotate(-2deg); }
+  .stack figure:nth-child(2) { left: 26%; top: 0; transform: rotate(6deg); }
+  .stack figure:nth-child(3) { left: 12%; top: 130px; transform: rotate(-2deg); }
   .stack.open figure:nth-child(1) { transform: rotate(-12deg) translate(-5%, 4%); }
   .stack.open figure:nth-child(2) { transform: rotate(9deg) translate(7%, -3%); }
-  .readme p { font: clamp(21px, 2.1vw, 25px)/1.5 Georgia, serif; margin: 0 0 20px; }
-  .readme .hot { color: var(--poppy); }
-  .readme .sign { font: italic 20px Georgia, serif; color: var(--muted); }
+  .letter h2 { margin-bottom: 26px; }
+  .letter p { font: clamp(20px, 2vw, 23px)/1.55 Georgia, serif; margin: 0 0 18px; }
+  .letter .hot { color: var(--poppy); }
+  .letter .sign { font-size: 36px; color: var(--poppy-deep); display: inline-block; margin-top: 8px; transform: rotate(-2deg); }
 
   /* ce qu'elle fait */
   .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
-  .tile { position: relative; overflow: hidden; border-radius: var(--radius); padding: 28px; min-height: 240px; display: flex; flex-direction: column; isolation: isolate; transition: transform .3s ease, box-shadow .3s ease; }
+  .tile { position: relative; overflow: hidden; border-radius: var(--radius); padding: 30px; min-height: 250px; display: flex; flex-direction: column; isolation: isolate; transition: transform .3s ease, box-shadow .3s ease; }
   .tile:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .tile h3 { font-size: 27px; margin: auto 0 8px; }
-  .tile p { margin: 0; color: rgba(43, 34, 32, .78); font-size: 17px; max-width: 26em; }
+  .tile h3 { font-size: 28px; margin: auto 0 8px; }
+  .tile p { margin: 0; color: rgba(43, 34, 32, .78); font-size: 17.5px; max-width: 26em; }
   .tile .shape { position: absolute; z-index: -1; border-radius: 50%; transition: transform 1s ease; }
   .tile:hover .shape { transform: scale(1.1); }
   .tile .icon { flex: none; width: 56px; height: 56px; border-radius: 28px; background: #fff; display: grid; place-items: center; margin-bottom: 20px; box-shadow: var(--shadow-soft); }
-  .t1 { grid-column: span 4; background: linear-gradient(135deg, #FFD9CB, #FFF1E8); min-height: 300px; }
+  .t1 { grid-column: span 4; background: linear-gradient(135deg, #FFD9CB, #FFF1E8); min-height: 310px; }
   .t1 .shape { width: 320px; height: 320px; right: -80px; top: -120px; background: radial-gradient(circle at 35% 35%, #FF9C80, var(--poppy)); opacity: .85; }
-  .t2 { grid-column: span 2; background: linear-gradient(160deg, #CDEBD6, #EFF8F2); min-height: 300px; }
+  .t2 { grid-column: span 2; background: linear-gradient(160deg, #CDEBD6, #EFF8F2); min-height: 310px; }
   .t2 .shape { width: 210px; height: 210px; right: -60px; top: -70px; background: #6FBF8A; opacity: .6; }
   .t3 { grid-column: span 2; background: linear-gradient(160deg, #D0E5F8, #EEF6FD); }
   .t3 .shape { width: 190px; height: 190px; right: -50px; top: -60px; background: #79B2E3; opacity: .6; }
@@ -174,10 +172,10 @@
   .t4 .shape { width: 190px; height: 190px; right: -40px; top: -70px; background: #F08AA0; opacity: .6; }
   .t5 { grid-column: span 2; background: linear-gradient(160deg, #FCE3A8, #FFF6DE); }
   .t5 .shape { width: 200px; height: 200px; right: -60px; top: -60px; background: #F5C04E; opacity: .6; }
-  .t6 { grid-column: span 6; background: linear-gradient(120deg, #E2D9FB, #F6F2FF); min-height: 180px; }
+  .t6 { grid-column: span 6; background: linear-gradient(120deg, #E2D9FB, #F6F2FF); min-height: 190px; }
   .t6 .shape { width: 260px; height: 260px; right: 8%; top: -130px; background: #B4A2F0; opacity: .6; }
-  .t1 .photos { position: absolute; right: 28px; bottom: 26px; display: flex; }
-  .t1 .photos img { width: 92px; height: 92px; object-fit: cover; border-radius: 6px; border: 5px solid #fff; box-shadow: var(--shadow-soft); margin-left: -18px; transition: transform .4s ease; }
+  .t1 .photos { position: absolute; right: 30px; bottom: 28px; display: flex; }
+  .t1 .photos img { width: 96px; height: 96px; object-fit: cover; border-radius: 6px; border: 5px solid #fff; box-shadow: var(--shadow-soft); margin-left: -18px; transition: transform .4s ease; }
   .t1 .photos img:nth-child(1) { transform: rotate(-6deg); }
   .t1 .photos img:nth-child(3) { transform: rotate(6deg); }
   .t1:hover .photos img:nth-child(1) { transform: rotate(-10deg) translateY(-4px); }
@@ -214,8 +212,8 @@
 
   /* l'installer */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
-  .step { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 90px 26px 26px; }
-  .step::before { counter-increment: s; content: counter(s); position: absolute; top: 22px; left: 26px; width: 50px; height: 50px; border-radius: 50%; background: var(--poppy); color: #fff; display: grid; place-items: center; font: bold 23px Georgia, serif; }
+  .step { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 92px 26px 26px; }
+  .step::before { counter-increment: s; content: counter(s); position: absolute; top: 22px; left: 26px; width: 52px; height: 52px; border-radius: 50%; background: var(--poppy); color: #fff; display: grid; place-items: center; font: bold 24px Georgia, serif; }
   .step h3 { font-size: 22px; margin-bottom: 8px; }
   .step p { margin: 0; color: var(--muted); font-size: 16.5px; }
   .warn { margin-top: 14px; background: var(--sun-soft); border-radius: 14px; padding: 14px 16px; font-size: 15.5px; }
@@ -239,6 +237,7 @@
   .contact { position: relative; overflow: hidden; border-radius: 36px; padding: 60px; color: #fff; background: radial-gradient(circle at 88% 15%, rgba(255, 170, 140, .55), transparent 38%), linear-gradient(120deg, #B43A22, #7E2B1A); display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; box-shadow: var(--shadow); }
   .contact h2 { font-size: clamp(34px, 4.4vw, 52px); }
   .contact p { font-size: 19px; opacity: .92; margin: 14px 0 0; max-width: 30em; }
+  .contact .hand { font-size: 32px; color: #FFD9A8; display: inline-block; margin-top: 14px; transform: rotate(-2deg); }
   .contact .alt { font-size: 15.5px; opacity: .85; margin-top: 16px; }
   .contact .alt a { color: #fff; }
   .write { background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .25); border-radius: 24px; padding: 24px; display: grid; gap: 14px; }
@@ -249,52 +248,64 @@
   .write small { opacity: .85; font-size: 14.5px; line-height: 1.45; }
 
   /* la fin */
-  .again { text-align: center; padding: 100px 0 30px; }
-  .again h2 { font-size: clamp(36px, 5.4vw, 64px); margin-bottom: 28px; }
-  footer { text-align: center; color: var(--muted); font-size: 16px; padding: 20px 16px 50px; }
-  footer em { font: italic 20px Georgia, serif; color: var(--poppy); }
+  .again { text-align: center; padding: 110px 0 30px; }
+  .again h2 { font-size: clamp(38px, 5.6vw, 68px); margin-bottom: 30px; }
+  footer { text-align: center; color: var(--muted); font-size: 16px; padding: 24px 16px 54px; }
+  footer .hand { font-size: 28px; color: var(--poppy); }
 
   /* ============================================================ apparitions au défilement */
   .rise { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; transition-delay: var(--d, 0s); }
   .rise.seen { opacity: 1; transform: none; }
+  /* le haut de page apparaît au chargement, sans attendre le défilement */
+  .intro { animation: intro .9s ease both; animation-delay: var(--d, 0s); }
+  @keyframes intro { from { opacity: 0; transform: translateY(18px); } }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .rise { opacity: 1; transform: none; }
     .hero h1 .love path { stroke-dashoffset: 0; }
   }
 
-  /* ============================================================ petits écrans */
+  /* ============================================================ écrans moyens et petits */
+  /* la note à la main ne s'affiche que si elle a toute la place à gauche de la vidéo */
+  @media (max-width: 1500px) {
+    .note { display: none; }
+  }
+  @media (max-width: 1240px) {
+    .pola.p1 { left: -30px; width: 160px; }
+    .postit { right: -16px; }
+  }
   @media (max-width: 1020px) {
     .nav .links { display: none; }
     .nav .mini { margin-left: auto; }
-    .hero .wrap, .story, .soon-band, .two, .contact { grid-template-columns: 1fr; }
-    .stage { max-width: 720px; margin: 40px auto 30px; width: 100%; }
+    .story, .soon-band, .two, .contact { grid-template-columns: 1fr; }
     .support { grid-template-columns: 1fr 1fr; }
     .bento { grid-template-columns: repeat(2, 1fr); }
     .t1, .t6 { grid-column: span 2; }
     .t2, .t3, .t4, .t5 { grid-column: span 1; }
     .steps { grid-template-columns: 1fr; }
-    .stack { max-width: 430px; height: 340px; }
+    .stack { max-width: 440px; height: 360px; }
     .soon-band, .contact { padding: 42px 26px; border-radius: 28px; }
+    .pola { display: none; }
+    .postit { right: 10px; top: -70px; width: 220px; }
+    .postit b { font-size: 26px; } .postit p { font-size: 22px; }
   }
   @media (max-width: 640px) {
     body { font-size: 18px; }
-    section { padding: 64px 0; }
-    .hero { padding-bottom: 130px; }
+    section { padding: 70px 0; }
+    .hero { padding: 130px 0 140px; }
+    .hero .eyebrow { font-size: 28px; }
     .logo span { display: none; }
     .btn.main { width: 100%; }
-    .how { display: block; margin: 16px 0 0; width: max-content; }
-    .postit { max-width: 100%; }
-    .stage { max-width: 330px; }
-    .screen { transform: none; }
+    .stage { width: min(340px, 100%); margin-top: 50px; }
+    .screen { padding: 9px; transform: none; }
     .screen video { aspect-ratio: 9 / 16; }
-    .pola.p1 { width: 42%; left: -14%; top: -8%; }
-    .pola.p2 { width: 38%; right: -12%; bottom: -8%; }
-    .hello { left: -2%; bottom: -4%; font-size: 19px; }
+    .screen .toggle { right: 18px; bottom: 18px; }
+    .tape { width: 90px; }
+    .postit { position: relative; right: auto; top: auto; width: auto; margin: 34px 10px 0; rotate: -2deg; }
     .bento { grid-template-columns: 1fr; }
     .t1, .t2, .t3, .t4, .t5, .t6 { grid-column: span 1; min-height: 220px; }
-    .t1 { min-height: 310px; }
-    .t1 .photos { left: 28px; right: auto; top: 26px; bottom: auto; }
+    .t1 { min-height: 320px; }
+    .t1 .photos { left: 30px; right: auto; top: 28px; bottom: auto; }
     .t1 .icon { display: none; }
     .support { grid-template-columns: 1fr; }
     .dev.mac { width: 205px; height: 136px; left: 0; }
@@ -313,8 +324,8 @@
     <span>Les photos de Mamie</span>
   </a>
   <div class="links">
-    <a href="#fonctions">Ce qu'elle fait</a>
     <a href="#histoire">Pourquoi</a>
+    <a href="#fonctions">Ce qu'elle fait</a>
     <a href="#bientot">Bientôt</a>
     <a href="#installer">L'installer</a>
     <a href="#contact">M'écrire</a>
@@ -325,38 +336,36 @@
 <!-- ============================================================ l'ouverture -->
 <header class="hero">
   <div class="wrap">
-    <div>
-      <span class="eyebrow rise">Faite pour ma mamie</span>
-      <h1 class="rise" style="--d:.08s">Ses photos, <span class="love">enfin simples.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 60 4, 140 2, 297 10" fill="none" stroke="#F2B33D" stroke-width="7" stroke-linecap="round"/></svg></span></h1>
-      <p class="lead rise" style="--d:.16s">On branche le téléphone, et c'est tout : l'appli récupère les photos, aide à les ranger en albums et les montre en grand. De gros boutons, des mots simples, et un « Bonjour Mamie&nbsp;! » à chaque ouverture.</p>
-      <div class="rise" style="--d:.24s">
-        <a class="btn main" href="https://github.com/Glaede2/les-photos-de-mamie/releases/latest/download/MesPhotos.exe">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v11.17l-4.59-4.58L6 10l6 6 6-6-1.41-1.41L13 13.17V2h-2z"/></svg>
-          Télécharger pour Windows
-        </a>
-        <a class="how" href="#fonctions">Comment ça marche&nbsp;↓</a>
-      </div>
-      <div class="meta rise" style="--d:.3s" id="version"><span>Windows 10 et 11</span><span>Vos photos restent chez vous</span></div>
-      <div class="postit rise" style="--d:.4s"><b>Psst…</b>Elle marche aussi avec les papis. Et les tontons. Et les marraines. Et même avec vous.</div>
+    <span class="eyebrow hand intro">Faite pour ma mamie ♥</span>
+    <h1 class="intro" style="--d:.08s">Ses photos, <span class="love">enfin simples.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 60 4, 140 2, 297 10" fill="none" stroke="#F2B33D" stroke-width="7" stroke-linecap="round"/></svg></span></h1>
+    <p class="lead intro" style="--d:.16s">On branche le téléphone, et c'est tout : l'appli récupère les photos, aide à les ranger en albums et les montre en grand. Avec de gros boutons et des mots simples.</p>
+    <div class="intro" style="--d:.24s">
+      <a class="btn main" href="https://github.com/Glaede2/les-photos-de-mamie/releases/latest/download/MesPhotos.exe">
+        <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v11.17l-4.59-4.58L6 10l6 6 6-6-1.41-1.41L13 13.17V2h-2z"/></svg></span>
+        <span>Télécharger l'appli<small class="dl-info">pour Windows</small></span>
+      </a>
     </div>
 
-    <div class="stage rise" style="--d:.15s">
-      <div class="pola p1"><img src="media/coquelicots.webp" alt="" loading="eager"><span>Le jardin</span></div>
-      <div class="pola p2"><img src="media/chat.webp" alt="" loading="eager"><span>Pompon</span></div>
+    <div class="stage intro" style="--d:.3s">
+      <div class="note n1 hand" aria-hidden="true">On branche le téléphone, un clic, et c'est rangé.
+        <svg width="120" height="60" viewBox="0 0 120 60"><path d="M10 6 C 50 10, 80 24, 108 50" fill="none" stroke="#8A2E1B" stroke-width="3" stroke-linecap="round"/><path d="M96 48 L109 51 L106 38" fill="none" stroke="#8A2E1B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="pola p1"><img src="media/coquelicots.webp" alt="" loading="eager"><span class="hand">Le jardin</span></div>
       <div class="screen">
+        <i class="tape t-l"></i>
         <video id="demo" muted playsinline loop preload="metadata" poster="media/apercu.jpg" aria-label="Démonstration : on récupère les photos du téléphone, on les range dans un album, on les regarde en grand."></video>
         <button class="toggle" id="toggle" aria-label="Mettre la vidéo en pause"><svg width="16" height="16" viewBox="0 0 24 24" id="toggleIcon"><path fill="#2B2220" d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button>
       </div>
-      <div class="hello">Bonjour Mamie !</div>
+      <div class="postit hand"><b>Psst…</b><p>Elle marche aussi avec les papis. Et les tontons. Et même avec vous.</p></div>
     </div>
   </div>
   <div class="hills" aria-hidden="true">
-    <svg viewBox="0 0 1200 130" preserveAspectRatio="none">
-      <path d="M0,62 C200,22 380,32 600,58 C820,84 1000,32 1200,50 L1200,130 L0,130Z" fill="#B9D29A" opacity=".6"/>
-      <path d="M0,92 C260,62 460,78 700,92 C900,104 1050,76 1200,84 L1200,130 L0,130Z" fill="#9CC07A" opacity=".65"/>
-      <g fill="#D9362B"><circle cx="120" cy="86" r="7"/><circle cx="260" cy="98" r="6"/><circle cx="420" cy="88" r="8"/><circle cx="560" cy="102" r="6"/><circle cx="730" cy="94" r="7"/><circle cx="880" cy="104" r="6"/><circle cx="1010" cy="88" r="8"/><circle cx="1130" cy="100" r="6"/></g>
-      <g fill="#fff"><circle cx="190" cy="106" r="4"/><circle cx="640" cy="110" r="4"/><circle cx="960" cy="112" r="4"/></g>
-      <g fill="#4F7FD6"><circle cx="340" cy="106" r="4"/><circle cx="800" cy="112" r="4"/></g>
+    <svg viewBox="0 0 1200 140" preserveAspectRatio="none">
+      <path d="M0,70 C200,28 380,38 600,64 C820,90 1000,38 1200,56 L1200,140 L0,140Z" fill="#B9D29A" opacity=".6"/>
+      <path d="M0,100 C260,70 460,86 700,100 C900,112 1050,84 1200,92 L1200,140 L0,140Z" fill="#9CC07A" opacity=".65"/>
+      <g fill="#D9362B"><circle cx="120" cy="94" r="7"/><circle cx="260" cy="106" r="6"/><circle cx="420" cy="96" r="8"/><circle cx="560" cy="110" r="6"/><circle cx="730" cy="102" r="7"/><circle cx="880" cy="112" r="6"/><circle cx="1010" cy="96" r="8"/><circle cx="1130" cy="108" r="6"/></g>
+      <g fill="#fff"><circle cx="190" cy="114" r="4"/><circle cx="640" cy="118" r="4"/><circle cx="960" cy="120" r="4"/></g>
+      <g fill="#4F7FD6"><circle cx="340" cy="114" r="4"/><circle cx="800" cy="120" r="4"/></g>
     </svg>
   </div>
 </header>
@@ -369,10 +378,30 @@
 </div>
 
 <main>
+  <!-- ============================================================ l'histoire -->
+  <section id="histoire">
+    <div class="wrap story">
+      <div class="stack rise" id="stack" aria-hidden="true">
+        <figure><img src="media/noel.webp" alt="" loading="lazy"><figcaption class="hand">Noël</figcaption></figure>
+        <figure><img src="media/plage.webp" alt="" loading="lazy"><figcaption class="hand">Les vacances</figcaption></figure>
+        <figure><img src="media/giverny.webp" alt="" loading="lazy"><figcaption class="hand">Pour Mamie ♥</figcaption></figure>
+      </div>
+      <div class="letter rise" id="letter">
+        <span class="kicker hand">Pourquoi cette appli ?</span>
+        <h2>Tout est parti d'elle.</h2>
+        <p>Ma mamie adore ses photos. Mais elles étaient partout : dans le téléphone, sur les cartes de l'appareil photo, dans des dossiers aux noms impossibles.</p>
+        <p>Les logiciels que j'ai essayés avec elle avaient trop de menus, trop de boutons, trop de mots compliqués. Elle avait peur de faire une bêtise, et les photos restaient dans le téléphone.</p>
+        <p>Alors j'en ai fabriqué une, <span class="hot">rien que pour elle.</span> Elle branche son téléphone, l'appli s'occupe du reste. Et surtout, elle ne peut rien perdre.</p>
+        <p>Si elle peut rendre le même service à d'autres grands-parents, c'est encore mieux.</p>
+        <span class="sign hand">Avec tout mon amour, pour elle et pour les vôtres.</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================ ce qu'elle fait -->
-  <section id="fonctions">
+  <section id="fonctions" style="padding-top:40px">
     <div class="wrap">
-      <span class="kicker rise">Tout ce qu'il faut, rien de plus</span>
+      <span class="kicker hand rise">Tout ce qu'il faut, rien de plus</span>
       <h2 class="rise">Ce qu'elle fait.</h2>
       <p class="sub rise">Elle tutoie, dit bonjour avec le bon prénom, et ne pose jamais de question compliquée.</p>
       <div class="bento">
@@ -417,29 +446,10 @@
     </div>
   </section>
 
-  <!-- ============================================================ l'histoire -->
-  <section id="histoire" style="padding-top:30px">
-    <div class="wrap story">
-      <div class="stack rise" id="stack" aria-hidden="true">
-        <figure><img src="media/noel.webp" alt="" loading="lazy"><figcaption>Noël</figcaption></figure>
-        <figure><img src="media/plage.webp" alt="" loading="lazy"><figcaption>Les vacances</figcaption></figure>
-        <figure><img src="media/giverny.webp" alt="" loading="lazy"><figcaption>Pour Mamie ♥</figcaption></figure>
-      </div>
-      <div class="readme rise" id="readme">
-        <span class="kicker">Pourquoi cette appli ?</span>
-        <p>Ma mamie adore ses photos. Mais elles étaient partout : dans le téléphone, sur les cartes de l'appareil photo, dans des dossiers aux noms impossibles.</p>
-        <p>Les logiciels que j'ai essayés avec elle avaient trop de menus, trop de boutons, trop de mots compliqués. Elle avait peur de faire une bêtise, et les photos restaient dans le téléphone.</p>
-        <p>Alors j'en ai fabriqué une, <span class="hot">rien que pour elle.</span> Elle branche son téléphone, l'appli s'occupe du reste. Et surtout, elle ne peut rien perdre.</p>
-        <p>Si elle peut rendre le même service à d'autres grands-parents, c'est encore mieux.</p>
-        <span class="sign">Avec tout mon amour, pour elle et pour les vôtres.</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ============================================================ ce qu'on peut brancher -->
-  <section style="padding-top:30px">
+  <section style="padding-top:20px">
     <div class="wrap">
-      <span class="kicker rise">Ce qu'on peut brancher</span>
+      <span class="kicker hand rise">Ce qu'on peut brancher</span>
       <h2 class="rise">Presque tout.</h2>
       <p class="sub rise">Presque tout ce qu'on branche sur un ordinateur, et presque tous les formats de photos et de vidéos.</p>
       <div class="support">
@@ -490,7 +500,7 @@
     <div class="wrap">
       <div class="soon-band rise">
         <div>
-          <span class="kicker">La suite</span>
+          <span class="kicker hand">La suite</span>
           <h2>Bientôt sur <em>tous les écrans</em> de la famille.</h2>
           <p>Mac, tablette et téléphone : Les photos de Mamie se prépare à arriver partout où sont vos souvenirs. Même simplicité, mêmes gros boutons.</p>
           <a class="btn" href="#contact">Être prévenu à la sortie</a>
@@ -507,13 +517,13 @@
   <!-- ============================================================ l'installer -->
   <section id="installer" style="padding-top:40px">
     <div class="wrap">
-      <span class="kicker rise">Trois minutes, une seule fois</span>
+      <span class="kicker hand rise">Trois minutes, une seule fois</span>
       <h2 class="rise">L'installer chez Mamie.</h2>
       <p class="sub rise">Le mieux : le faire soi-même chez elle, une seule fois. Ensuite, elle se met à jour toute seule.</p>
       <div class="steps">
         <div class="step rise">
           <h3>Télécharge l'appli</h3>
-          <p>Clique sur « Télécharger pour Windows ». Si le navigateur dit que le fichier « n'est pas souvent téléchargé », choisis « Conserver ».</p>
+          <p>Clique sur « Télécharger l'appli ». Si le navigateur dit que le fichier « n'est pas souvent téléchargé », choisis « Conserver ».</p>
         </div>
         <div class="step rise" style="--d:.08s">
           <h3>Ouvre MesPhotos.exe</h3>
@@ -522,7 +532,7 @@
         </div>
         <div class="step rise" style="--d:.16s">
           <h3>Donne un prénom</h3>
-          <p>Mamie, Papi, Tonton Gérard… L'appli s'installe toute seule et pose un coquelicot sur le Bureau. C'est tout.</p>
+          <p>Mamie, Papi, Anne… L'appli s'installe toute seule et pose un coquelicot sur le Bureau. C'est tout.</p>
         </div>
       </div>
     </div>
@@ -532,7 +542,7 @@
   <section style="padding-top:40px">
     <div class="wrap two">
       <div>
-        <span class="kicker rise">Elle grandit</span>
+        <span class="kicker hand rise">Elle grandit</span>
         <h2 class="rise">Les nouveautés.</h2>
         <p class="sub rise" style="margin-bottom:26px">Arrivées toutes seules chez tout le monde.</p>
         <div class="news rise" id="news">
@@ -540,13 +550,13 @@
         </div>
       </div>
       <div>
-        <span class="kicker rise">Vous vous demandez</span>
+        <span class="kicker hand rise">Vous vous demandez</span>
         <h2 class="rise">Questions.</h2>
         <p class="sub rise" style="margin-bottom:26px">Les réponses courtes.</p>
         <div class="rise">
-          <details><summary>Ça marche pour Papi aussi ?</summary><div class="ans">Évidemment. Et pour les tontons, les marraines et les voisins. On choisit le prénom à l'installation, et l'appli s'adresse à la bonne personne.</div></details>
           <details><summary>Faut-il créer un compte ?</summary><div class="ans">Non. Pas de compte, pas d'inscription, pas de mot de passe à retenir.</div></details>
           <details><summary>Les photos partent-elles sur internet ?</summary><div class="ans">Non. Elles restent sur l'ordinateur, dans le dossier Images. L'appli ne se connecte que pour vérifier s'il existe une nouvelle version, et pour trouver un lieu sur la carte quand on en tape un.</div></details>
+          <details><summary>Et les photos déjà sur l'ordinateur ?</summary><div class="ans">L'appli peut les retrouver (dans Images, sur le Bureau, dans Téléchargements) et proposer d'en faire des albums. Rien ne bouge sans qu'on le demande.</div></details>
           <details><summary>Rien n'est effacé du téléphone ?</summary><div class="ans">Rien. L'appli copie les photos, elle ne supprime jamais rien sur l'appareil branché.</div></details>
           <details><summary>Et sur Mac, tablette ou téléphone ?</summary><div class="ans">Pas encore, mais ça arrive bientôt. Écrivez-moi pour être prévenu à la sortie.</div></details>
         </div>
@@ -560,7 +570,8 @@
       <div class="contact rise">
         <div>
           <h2>Une idée ? Un souci ?</h2>
-          <p>Cette appli est faite maison, et chaque remarque l'améliore. Un bouton pas clair, un appareil pas reconnu, une envie pour votre mamie (ou votre papi) : écrivez-moi, je lis tout.</p>
+          <p>Cette appli est faite maison, et chaque remarque l'améliore. Un bouton pas clair, un appareil pas reconnu, une envie pour votre mamie : écrivez-moi.</p>
+          <span class="hand">Je lis tout, promis ♥</span>
           <p class="alt">Vous connaissez GitHub ? Vous pouvez aussi <a href="https://github.com/Glaede2/les-photos-de-mamie/issues/new">y laisser une suggestion</a>.</p>
         </div>
         <div class="write">
@@ -579,14 +590,14 @@
     <div class="wrap">
       <h2 class="rise">Pour les photos<br>de votre famille.</h2>
       <a class="btn main rise" href="https://github.com/Glaede2/les-photos-de-mamie/releases/latest/download/MesPhotos.exe">
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v11.17l-4.59-4.58L6 10l6 6 6-6-1.41-1.41L13 13.17V2h-2z"/></svg>
-        Télécharger pour Windows
+        <span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 20h14v-2H5v2zm7-18v11.17l-4.59-4.58L6 10l6 6 6-6-1.41-1.41L13 13.17V2h-2z"/></svg></span>
+        <span>Télécharger l'appli<small class="dl-info">pour Windows</small></span>
       </a>
     </div>
   </section>
 </main>
 
-<footer><em>Faite avec amour pour Mamie,</em><br>et pour toutes les autres. Les papis aussi.</footer>
+<footer><span class="hand">Faite avec amour pour Mamie,</span><br>et pour toutes les autres.</footer>
 
 <script>
   const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -621,34 +632,33 @@
   toggle.addEventListener("click", () => { paused = !paused; paused ? video.pause() : video.play().catch(() => {}); setIcon(); });
   new IntersectionObserver(([e]) => { if (e.isIntersecting && !paused) video.play().catch(() => {}); else video.pause(); }, { threshold: .25 }).observe(video);
 
-  // ---- apparitions au défilement
+  // ---- apparitions au défilement (et, au cas où l'observateur ne se déclenche pas, tout ce qui est déjà passé s'affiche)
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("seen"); io.unobserve(e.target); } }), { threshold: .12 });
   document.querySelectorAll(".rise").forEach(el => io.observe(el));
-  // au cas où l'observateur ne se déclenche pas (saut dans la page, onglet en arrière-plan) : tout ce qui est déjà passé s'affiche
   const reveal = () => document.querySelectorAll(".rise:not(.seen)").forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add("seen"); });
   addEventListener("scroll", reveal, { passive: true });
   addEventListener("hashchange", () => setTimeout(reveal, 50));
   setTimeout(reveal, 1200);
 
   // ---- l'histoire : les photos s'écartent un peu quand on arrive au texte
-  const stack = document.getElementById("stack"), readme = document.getElementById("readme");
-  const spread = () => stack.classList.toggle("open", readme.getBoundingClientRect().top < innerHeight * .5);
+  const stack = document.getElementById("stack"), letter = document.getElementById("letter");
+  const spread = () => stack.classList.toggle("open", letter.getBoundingClientRect().top < innerHeight * .5);
   addEventListener("scroll", spread, { passive: true });
   spread();
 
-  // ---- la dernière version et les nouveautés, lues sur GitHub (le bouton marche aussi sans ça)
+  // ---- la dernière version et les nouveautés, lues sur GitHub (le bouton marche aussi sans ça).
+  // GitHub ne répond qu'à 60 demandes par heure et par connexion : au-delà, on lit la copie posée à côté de la page.
   const repo = "Glaede2/les-photos-de-mamie";
   const day = d => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  fetch(`https://api.github.com/repos/${repo}/releases?per_page=30`)
-    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  const json = r => r.ok ? r.json() : Promise.reject(r.status);
+  fetch(`https://api.github.com/repos/${repo}/releases?per_page=30`).then(json)
+    .catch(() => fetch("nouveautes.json", { cache: "no-cache" }).then(json))
     .then(list => {
       const releases = list.filter(r => !r.draft && !r.prerelease);
       if (!releases.length) return;
-      const last = releases[0];
-      const exe = (last.assets || []).find(a => a.name === "MesPhotos.exe");
-      document.getElementById("version").insertAdjacentHTML("beforeend",
-        `<span>Version du ${esc(day(last.published_at))}${exe ? ` · ${Math.round(exe.size / 1048576)} Mo` : ""}</span>`);
+      const exe = (releases[0].assets || []).find(a => a.name === "MesPhotos.exe");
+      if (exe) document.querySelectorAll(".dl-info").forEach(el => el.textContent = `pour Windows · ${Math.round(exe.size / 1048576)} Mo`);
       // plusieurs versions le même jour : une seule carte, une ligne par nouveauté
       const days = [];
       for (const r of releases) {
