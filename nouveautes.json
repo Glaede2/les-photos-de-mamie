@@ -1,5 +1,22 @@
 [
     {
+        "published_at":  "2026-11-05T19:39:38Z",
+        "name":  "Version du 05/11/2026 20:39",
+        "body":  "Les iPhone et iPad sont mieux reconnus : les photos apparaissent une fois le téléphone déverrouillé et « fié », et la copie reprend toute seule quand une photo résiste.",
+        "draft":  false,
+        "prerelease":  false,
+        "assets":  [
+                       {
+                           "name":  "MesPhotos.exe",
+                           "size":  92841865
+                       },
+                       {
+                           "name":  "version.json",
+                           "size":  878
+                       }
+                   ]
+    },
+    {
         "published_at":  "2026-11-04T18:34:30Z",
         "name":  "Version du 04/11/2026 19:34",
         "body":  "Dans un album, les photos apparaissent plus vite pendant qu\u0027on fait défiler, même sur un ordinateur modeste.",
