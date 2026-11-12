@@ -1,155 +1,172 @@
 [
     {
-        "published_at":  "2026-11-05T19:39:38Z",
-        "name":  "Version du 05/11/2026 20:39",
-        "body":  "Les iPhone et iPad sont mieux reconnus : les photos apparaissent une fois le téléphone déverrouillé et « fié », et la copie reprend toute seule quand une photo résiste.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92841865
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  878
-                       }
-                   ]
+        "published_at": "2026-11-12T21:29:18Z",
+        "name": "Version du 12/11/2026 22:29",
+        "body": "On peut maintenant choisir ce qu'on récupère d'un téléphone ou d'une clé : des albums entiers ou des photos une par une. Quand l'ordinateur n'a pas la place pour tout, l'appli propose ce choix toute seule.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92851165
+            },
+            {
+                "name": "version.json",
+                "size": 942
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-04T18:34:30Z",
-        "name":  "Version du 04/11/2026 19:34",
-        "body":  "Dans un album, les photos apparaissent plus vite pendant qu\u0027on fait défiler, même sur un ordinateur modeste.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92836964
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  817
-                       }
-                   ]
+        "published_at": "2026-11-05T19:39:38Z",
+        "name": "Version du 05/11/2026 20:39",
+        "body": "Les iPhone et iPad sont mieux reconnus : les photos apparaissent une fois le téléphone déverrouillé et « fié », et la copie reprend toute seule quand une photo résiste.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92841865
+            },
+            {
+                "name": "version.json",
+                "size": 878
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T21:51:06Z",
-        "name":  "Version du 03/11/2026 22:50",
-        "body":  "La page « Mes albums » défile bien plus facilement, même avec beaucoup d\u0027albums et sur un ordinateur modeste. L\u0027appli se fait aussi plus discrète pendant qu\u0027on s\u0027en sert.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92833914
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  897
-                       }
-                   ]
+        "published_at": "2026-11-04T18:34:30Z",
+        "name": "Version du 04/11/2026 19:34",
+        "body": "Dans un album, les photos apparaissent plus vite pendant qu'on fait défiler, même sur un ordinateur modeste.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92836964
+            },
+            {
+                "name": "version.json",
+                "size": 817
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T20:54:30Z",
-        "name":  "Version du 03/11/2026 21:54",
-        "body":  "Les très gros albums défilent maintenant tout en douceur, même avec des milliers de photos.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92832945
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  796
-                       }
-                   ]
+        "published_at": "2026-11-03T21:51:06Z",
+        "name": "Version du 03/11/2026 22:50",
+        "body": "La page « Mes albums » défile bien plus facilement, même avec beaucoup d'albums et sur un ordinateur modeste. L'appli se fait aussi plus discrète pendant qu'on s'en sert.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92833914
+            },
+            {
+                "name": "version.json",
+                "size": 897
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T18:41:47Z",
-        "name":  "Version du 03/11/2026 19:41",
-        "body":  "Photos en double : l\u0027appli reconnaît maintenant la même photo même si elle a été renvoyée par message, réduite ou convertie. À l\u0027import, elle garde la meilleure version (l\u0027original remplace la copie reçue sur WhatsApp). Et dans les réglages, un nouvel écran « Photos en double » aide à faire le tri, sans jamais rien jeter tout seul.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92829234
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  1064
-                       }
-                   ]
+        "published_at": "2026-11-03T20:54:30Z",
+        "name": "Version du 03/11/2026 21:54",
+        "body": "Les très gros albums défilent maintenant tout en douceur, même avec des milliers de photos.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92832945
+            },
+            {
+                "name": "version.json",
+                "size": 796
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T15:48:13Z",
-        "name":  "Version du 03/11/2026 16:48",
-        "body":  "Dans un album : « Choisir des photos » puis « Corriger la date », pour remettre d\u0027un coup à la bonne date des photos mal datées (appareil mal réglé).",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92810134
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  864
-                       }
-                   ]
+        "published_at": "2026-11-03T18:41:47Z",
+        "name": "Version du 03/11/2026 19:41",
+        "body": "Photos en double : l'appli reconnaît maintenant la même photo même si elle a été renvoyée par message, réduite ou convertie. À l'import, elle garde la meilleure version (l'original remplace la copie reçue sur WhatsApp). Et dans les réglages, un nouvel écran « Photos en double » aide à faire le tri, sans jamais rien jeter tout seul.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92829234
+            },
+            {
+                "name": "version.json",
+                "size": 1064
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T15:27:33Z",
-        "name":  "Version du 03/11/2026 16:27",
-        "body":  "Dans un album : « Déplacer des photos » pour en mettre plusieurs (ou tout l\u0027album) dans un autre album d\u0027un coup.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92805927
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  828
-                       }
-                   ]
+        "published_at": "2026-11-03T15:48:13Z",
+        "name": "Version du 03/11/2026 16:48",
+        "body": "Dans un album : « Choisir des photos » puis « Corriger la date », pour remettre d'un coup à la bonne date des photos mal datées (appareil mal réglé).",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92810134
+            },
+            {
+                "name": "version.json",
+                "size": 864
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T15:19:16Z",
-        "name":  "Version du 03/11/2026 16:19",
-        "body":  "Au premier lancement, l\u0027appli demande le prénom (Mamie, Papi, Anne…) et l\u0027utilise partout. Réglable ensuite dans les réglages.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92802732
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  843
-                       }
-                   ]
+        "published_at": "2026-11-03T15:27:33Z",
+        "name": "Version du 03/11/2026 16:27",
+        "body": "Dans un album : « Déplacer des photos » pour en mettre plusieurs (ou tout l'album) dans un autre album d'un coup.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92805927
+            },
+            {
+                "name": "version.json",
+                "size": 828
+            }
+        ]
     },
     {
-        "published_at":  "2026-11-03T15:05:53Z",
-        "name":  "Version du 03/11/2026 16:05",
-        "body":  "Première version avec les mises à jour automatiques.",
-        "draft":  false,
-        "prerelease":  false,
-        "assets":  [
-                       {
-                           "name":  "MesPhotos.exe",
-                           "size":  92800002
-                       },
-                       {
-                           "name":  "version.json",
-                           "size":  756
-                       }
-                   ]
+        "published_at": "2026-11-03T15:19:16Z",
+        "name": "Version du 03/11/2026 16:19",
+        "body": "Au premier lancement, l'appli demande le prénom (Mamie, Papi, Anne…) et l'utilise partout. Réglable ensuite dans les réglages.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92802732
+            },
+            {
+                "name": "version.json",
+                "size": 843
+            }
+        ]
+    },
+    {
+        "published_at": "2026-11-03T15:05:53Z",
+        "name": "Version du 03/11/2026 16:05",
+        "body": "Première version avec les mises à jour automatiques.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92800002
+            },
+            {
+                "name": "version.json",
+                "size": 756
+            }
+        ]
     }
 ]
