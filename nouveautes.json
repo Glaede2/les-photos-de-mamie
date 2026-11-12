@@ -1,5 +1,22 @@
 [
     {
+        "published_at": "2026-11-12T21:47:51Z",
+        "name": "Version du 12/11/2026 22:47",
+        "body": "Tes photos sont encore mieux protégées : tourner une photo ne l'abîme plus du tout, les réglages et les photos préférées résistent aux coupures de courant, et chaque copie est vérifiée en entier quand on déplace ou sauvegarde les photos.",
+        "draft": false,
+        "prerelease": false,
+        "assets": [
+            {
+                "name": "MesPhotos.exe",
+                "size": 92894685
+            },
+            {
+                "name": "version.json",
+                "size": 955
+            }
+        ]
+    },
+    {
         "published_at": "2026-11-12T21:29:18Z",
         "name": "Version du 12/11/2026 22:29",
         "body": "On peut maintenant choisir ce qu'on récupère d'un téléphone ou d'une clé : des albums entiers ou des photos une par une. Quand l'ordinateur n'a pas la place pour tout, l'appli propose ce choix toute seule.",
